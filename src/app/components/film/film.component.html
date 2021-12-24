@@ -12,25 +12,23 @@
         {{ item.title }}
       </h5>
       <h6 class="card-subtitle text-muted">{{ item.original_title }}</h6>
-      <div class="accordion" id="accordionExample">
+      <div class="accordion" [id]="'accordionMain' + item.id">
         <div class="accordion-item mt-2">
-          <h2 class="accordion-header" id="headingOne">
+          <h2 class="accordion-header" [id]="'heading' + item.id">
             <button
               class="accordion-button"
               type="button"
               data-bs-toggle="collapse"
-              data-bs-target="#collapseOne"
-              aria-expanded="true"
-              aria-controls="collapseOne"
+              [attr.data-bs-target]="'#collapse' + item.id"
+              [attr.aria-controls]="'collapse' + item.id"
             >
               Description
             </button>
           </h2>
           <div
-            id="collapseOne"
+            [id]="'collapse' + item.id"
             class="accordion-collapse collapse"
-            aria-labelledby="headingOne"
-            data-bs-parent="#accordionExample"
+            [attr.aria-labelledby]="'heading' + item.id"
           >
             <div class="accordion-body">
               {{ item.description }}
@@ -38,23 +36,21 @@
           </div>
         </div>
         <div class="accordion-item mt-2">
-          <h2 class="accordion-header" id="headingTwo">
+          <h2 class="accordion-header" [id]="'heading' + item.original_title">
             <button
-              class="accordion-button collapsed"
+              class="accordion-button"
               type="button"
               data-bs-toggle="collapse"
-              data-bs-target="#collapseTwo"
-              aria-expanded="false"
-              aria-controls="collapseTwo"
+              [attr.data-bs-target]="'#collapse' + item.original_title"
+              [attr.aria-controls]="'collapse' + item.original_title"
             >
               Adicional information
             </button>
           </h2>
           <div
-            id="collapseTwo"
+            [id]="'collapse' + item.original_title"
             class="accordion-collapse collapse"
-            aria-labelledby="headingTwo"
-            data-bs-parent="#accordionExample"
+            [attr.aria-labelledby]="'heading' + item.id"
           >
             <div class="accordion-body">
               <p>Director: {{ item.director }}</p>
