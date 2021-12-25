@@ -9,11 +9,12 @@ import { FilmService } from 'src/app/services/film.service';
 })
 export class FilmComponent implements OnInit {
   films!: Film[];
+  filmsPerPage: number = 9;
 
   constructor(private service: FilmService) {}
 
   ngOnInit() {
-    this.service.getFilmsWithLimit(9).subscribe((films) => {
+    this.service.getFilmsWithLimit(this.filmsPerPage).subscribe((films) => {
       this.films = films;
     });
   }
