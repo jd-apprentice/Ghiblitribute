@@ -15,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: 'films',
-    component: FilmsComponent
+    component: FilmsComponent,
   },
   {
     path: 'people',
