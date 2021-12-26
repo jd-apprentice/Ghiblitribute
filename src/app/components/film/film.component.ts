@@ -13,6 +13,8 @@ export class FilmComponent implements OnInit {
 
   constructor(private service: FilmService) {}
 
+  // Prueba
+
   ngOnInit() {
     this.service.getFilmsWithLimit(this.filmsPerPage).subscribe((films) => {
       this.films = films;
